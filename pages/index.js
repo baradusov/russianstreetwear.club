@@ -1,37 +1,25 @@
-import { useState } from "react";
-import Modal from "../components/Modal";
-import data from './api/data.json';
+import CardList from "../components/CardList";
+import data from "./api/data";
 
 const Index = ({ brands }) => {
-  const [isShowing, setIsShowing] = useState(false);
-  const [brandId, setBrandId] = useState({});
-
-  const showModal = id => {
-    setIsShowing(true);
-    setBrandId(id);
-  };
 
   return (
-    <>
-      <ul>
-        {brands.map(brand => (
-          <li key={brand.id} onClick={() => showModal(brand.id)}>
-            <p>{brand.name}</p>
-          </li>
-        ))}
-      </ul>
-
-      <Modal
-        isShowing={isShowing}
-        setIsShowing={setIsShowing}
-        brandId={brandId}
-      />
-    </>
+    <main>
+      <h1>Российские бренды уличной одежды</h1>
+      <CardList data={brands} />
+    </main>
   );
 };
 
 Index.getInitialProps = async () => {
-  return data;
+  const indexData = data.brands.map(brand => {
+    const { id, logo, name, city } = brand;
+    return { id, logo, name, city };
+  });
+
+  return {
+    brands: indexData
+  };
 };
 
 export default Index;
