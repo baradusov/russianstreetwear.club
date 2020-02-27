@@ -1,5 +1,6 @@
 import { useState } from "react";
 import Modal from "../components/Modal";
+import data from './api/data.json';
 
 const Index = ({ brands }) => {
   const [isShowing, setIsShowing] = useState(false);
@@ -30,30 +31,7 @@ const Index = ({ brands }) => {
 };
 
 Index.getInitialProps = async () => {
-  return {
-    brands: [
-      {
-        id: 0,
-        name: "Волчок",
-        logo: ""
-      },
-      {
-        id: 1,
-        name: "Меч",
-        logo: ""
-      },
-      {
-        id: 2,
-        name: "g o l d m a n s",
-        logo: ""
-      },
-      {
-        id: 3,
-        name: "Anteater",
-        logo: ""
-      }
-    ]
-  };
+  return data;
 };
 
 export default Index;
