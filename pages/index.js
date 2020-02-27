@@ -1,5 +1,4 @@
 import { useState } from "react";
-import fetch from "isomorphic-unfetch";
 import Modal from "../components/Modal";
 
 const Index = ({ brands }) => {
@@ -12,7 +11,7 @@ const Index = ({ brands }) => {
   };
 
   return (
-    <> 
+    <>
       <ul>
         {brands.map(brand => (
           <li key={brand.id} onClick={() => showModal(brand.id)}>
@@ -35,19 +34,23 @@ Index.getInitialProps = async () => {
     brands: [
       {
         id: 0,
-        name: "Волчок"
+        name: "Волчок",
+        logo: ""
       },
       {
         id: 1,
-        name: "Меч"
+        name: "Меч",
+        logo: ""
       },
       {
         id: 2,
-        name: "g o l d m a n s"
+        name: "g o l d m a n s",
+        logo: ""
       },
       {
         id: 3,
-        name: "Anteater"
+        name: "Anteater",
+        logo: ""
       }
     ]
   };
