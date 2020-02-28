@@ -42,3 +42,11 @@ ul {
 h1 {
   font-family: "HNCB", sans-serif;
 }
+
+.search-input {
+  width: 100%;
+  padding: 15px;
+  border-radius: 8px;
+  font-size: 18px;
+  margin-bottom: 40px;
+}
