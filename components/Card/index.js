@@ -24,7 +24,7 @@ const Card = ({ data }) => {
           width={200}
           height={200}
         />
-        <p>{name}</p>
+        <p className={styles.title}>{name}</p>
       </li>
 
       <Modal
