@@ -1,4 +1,4 @@
-import data from './data';
+import * as data from './data.json';
 
 export default (req, res) => {
   const { id } = req.query;

@@ -1,6 +1,6 @@
 import CardList from "../components/CardList";
 import Layout from "../components/Layout";
-import data from "./api/data";
+import * as data from "./api/data.json";
 
 const Index = ({ brands }) => {
   return (
