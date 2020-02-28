@@ -1,13 +1,12 @@
 import CardList from "../components/CardList";
+import Layout from "../components/Layout";
 import data from "./api/data";
 
 const Index = ({ brands }) => {
-
   return (
-    <main>
-      <h1>Российские бренды уличной одежды</h1>
+    <Layout>
       <CardList data={brands} />
-    </main>
+    </Layout>
   );
 };
 
