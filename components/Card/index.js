@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Modal from "../Modal";
 import styles from "./index.module.css";
 
@@ -10,6 +10,12 @@ const Card = ({ data }) => {
     setIsShowing(true);
     setBrandId(id);
   };
+
+  useEffect(() => {
+    isShowing
+      ? document.body.classList.add("modal-open")
+      : document.body.classList.remove("modal-open");
+  }, [isShowing]);
 
   const { id, logo, name } = data;
   const brandImage = logo ? logo : "/logos/no-image.png";

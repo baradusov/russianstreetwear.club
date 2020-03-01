@@ -43,6 +43,10 @@ h1 {
   font-family: "HNCB", sans-serif;
 }
 
+.modal-open {
+  overflow: hidden;
+}
+
 .search-input {
   width: 100%;
   padding: 15px;
