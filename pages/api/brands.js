@@ -1,4 +1,4 @@
-import * as data from './data.json';
+import * as data from "./data.json";
 
 export default (req, res) => {
   const { id } = req.query;
@@ -9,5 +9,7 @@ export default (req, res) => {
     });
 
     res.status(200).json(brand[0]);
+  } else {
+    res.status(200).json(data);
   }
 };

@@ -1,7 +1,8 @@
 import { useState, useEffect } from "react";
 import CardList from "../components/CardList";
 import Layout from "../components/Layout";
-import * as data from "./api/data.json";
+import fetch from "isomorphic-unfetch";
+import { server } from "../config";
 
 const Index = ({ brands }) => {
   const [searchTerm, setSearchTerm] = useState("");
@@ -34,7 +35,10 @@ const Index = ({ brands }) => {
 };
 
 Index.getInitialProps = async () => {
-  const indexData = data.brands.map(brand => {
+  const response = await fetch(`${server}/api/brands`);
+  const data = await response.json();
+
+  const indexData = data.default.brands.map(brand => {
     const { id, logo, name, city } = brand;
     return { id, logo, name, city };
   });
