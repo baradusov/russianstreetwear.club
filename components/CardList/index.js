@@ -5,7 +5,9 @@ const CardList = ({ data, onClick }) => {
   return (
     <ul className={styles.list}>
       {data.map(brand => (
-        <Card key={brand.id} data={brand} onClick={onClick} />
+        <li key={brand.id}>
+          <Card data={brand} onClick={onClick} />
+        </li>
       ))}
     </ul>
   );

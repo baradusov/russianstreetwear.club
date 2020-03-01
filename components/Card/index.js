@@ -22,7 +22,7 @@ const Card = ({ data }) => {
 
   return (
     <>
-      <li className={styles.item} onClick={() => showModal(id)}>
+      <article className={styles.item} onClick={() => showModal(id)}>
         <img
           className={styles.logo}
           src={brandImage}
@@ -31,7 +31,7 @@ const Card = ({ data }) => {
           height={200}
         />
         <p className={styles.title}>{name}</p>
-      </li>
+      </article>
 
       <Modal
         isShowing={isShowing}
