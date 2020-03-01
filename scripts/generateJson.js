@@ -2,7 +2,7 @@
 
 const fs = require("fs");
 const yaml = require("js-yaml");
-var path = require("path");
+const path = require("path");
 
 const PATH_BRANDS = path.resolve(__dirname, "../brands");
 const PATH_OUTPUT = path.resolve(__dirname, "../pages/api/data.json");
