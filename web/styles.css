@@ -56,3 +56,14 @@ h1 {
   border: 1px solid gray;
   font-size: 18px;
 }
+
+.links {
+  margin-bottom: 30px;
+}
+
+.links a {
+  display: block;
+  margin-bottom: 10px;
+  text-decoration: underline;
+  text-underline-offset: 5px;
+}

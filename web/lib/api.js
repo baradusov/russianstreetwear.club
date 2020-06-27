@@ -9,9 +9,10 @@ const brandFileds = `
 
 export async function getBrand(slug) {
   const data = await sanity.fetch(
-    `*[_type == 'brand' && slug.current == $slug] | order(date desc){
+    `*[_type == 'brand' && slug.current == $slug]{
       ${brandFileds},
-      description
+      description,
+      links[]{_id, title, url}
     }`,
     { slug }
   );
@@ -21,7 +22,7 @@ export async function getBrand(slug) {
 
 export async function getAllBrands() {
   const data = await sanity.fetch(
-    `*[_type == 'brand'] | order(date desc){
+    `*[_type == 'brand']{
       ${brandFileds}
     }`
   );

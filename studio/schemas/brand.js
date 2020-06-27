@@ -26,6 +26,12 @@ export default {
       }
     },
     {
+      title: 'Links',
+      name: 'links',
+      type: 'array',
+      of: [{type: 'link'}]
+    },
+    {
       name: 'description',
       title: 'Description',
       type: 'blockContent'
