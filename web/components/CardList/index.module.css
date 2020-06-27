@@ -1,7 +1,17 @@
 .list {
   display: grid;
-  margin: 0 auto;
-  grid-template-columns: repeat(auto-fit, 220px);
+  grid-template-columns: repeat(4, 1fr);
   grid-gap: 25px;
-  max-width: 1000px;
+}
+
+@media (max-width: 980px) {
+  .list {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media (max-width: 600px) {
+  .list {
+    grid-template-columns: repeat(2, 1fr);
+  }
 }

@@ -7,7 +7,7 @@ const Card = ({ data }) => {
 
   return (
     <Link href="/brands/[slug]" as={`/brands/${slug}`}>
-      <a>
+      <a className={styles.link}>
         <article className={styles.item}>
           <img
             className={styles.logo}

@@ -21,7 +21,7 @@ const Index = ({ brands }) => {
   }, [searchTerm]);
 
   return (
-    <Layout>
+    <Layout home={true}>
       <input
         className="search-input"
         type="text"
