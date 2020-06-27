@@ -3,12 +3,13 @@ import BlockContent from "@sanity/block-content-to-react";
 import Layout from "../../components/Layout";
 
 import { getBrand, getAllBrands } from "../../lib/api";
+import urlFor from "../../lib/urlFor";
 
 const Brand = ({ brand }) => {
   return (
     <Layout>
       <img
-        src={brand.logo}
+        src={urlFor(brand.logo).width(300).height(300).url()}
         alt={brand.name}
         width={200}
         height={200}

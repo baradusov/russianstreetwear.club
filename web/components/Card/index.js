@@ -1,5 +1,6 @@
 import Link from "next/link";
 import styles from "./index.module.css";
+import urlFor from "../../lib/urlFor";
 
 const Card = ({ data }) => {
   const { logo, title, slug } = data;
@@ -11,10 +12,8 @@ const Card = ({ data }) => {
         <article className={styles.item}>
           <img
             className={styles.logo}
-            src={brandImage}
+            src={urlFor(brandImage).width(300).height(300).url()}
             alt={name}
-            width={200}
-            height={200}
           />
           <p className={styles.title}>{title}</p>
         </article>
