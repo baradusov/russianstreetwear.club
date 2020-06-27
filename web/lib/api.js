@@ -2,13 +2,14 @@ import sanity from "./client";
 
 const brandFileds = `
     title,
-    'slug': slug.current,
+    'logo': logo.asset->url,
+    'slug': slug.current
 `;
 
 export async function getBrand(slug) {
   const data = await sanity.fetch(
-    `*[_type == 'post' && slug.current == $slug] | order(date desc){
-      ${brandFileds}
+    `*[_type == 'brand' && slug.current == $slug] | order(date desc){
+      ${brandFileds},
     }`,
     { slug }
   );
@@ -18,7 +19,7 @@ export async function getBrand(slug) {
 
 export async function getAllBrands() {
   const data = await sanity.fetch(
-    `*[_type == 'post'] | order(date desc){
+    `*[_type == 'brand'] | order(date desc){
       ${brandFileds}
     }`
   );

@@ -1,6 +1,6 @@
 export default {
-  name: 'post',
-  title: 'Post',
+  name: 'brand',
+  title: 'Brand',
   type: 'document',
   fields: [
     {
@@ -18,33 +18,16 @@ export default {
       }
     },
     {
-      name: 'author',
-      title: 'Author',
-      type: 'reference',
-      to: {type: 'author'}
-    },
-    {
-      name: 'mainImage',
-      title: 'Main image',
+      name: 'logo',
+      title: 'Logo',
       type: 'image',
       options: {
         hotspot: true
       }
     },
     {
-      name: 'categories',
-      title: 'Categories',
-      type: 'array',
-      of: [{type: 'reference', to: {type: 'category'}}]
-    },
-    {
-      name: 'publishedAt',
-      title: 'Published at',
-      type: 'datetime'
-    },
-    {
-      name: 'body',
-      title: 'Body',
+      name: 'description',
+      title: 'Description',
       type: 'blockContent'
     }
   ],
@@ -53,7 +36,7 @@ export default {
     select: {
       title: 'title',
       author: 'author.name',
-      media: 'mainImage'
+      media: 'logo'
     },
     prepare(selection) {
       const {author} = selection
