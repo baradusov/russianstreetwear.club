@@ -5,7 +5,7 @@ const CardList = ({ data }) => {
   return (
     <ul className={styles.list}>
       {data.map(brand => (
-        <li key={brand.slug}>
+        <li key={brand._id}>
           <Card data={brand} />
         </li>
       ))}
