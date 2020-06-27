@@ -1,3 +1,5 @@
+import BlockContent from "@sanity/block-content-to-react";
+
 import Layout from "../../components/Layout";
 
 import { getBrand, getAllBrands } from "../../lib/api";
@@ -5,18 +7,24 @@ import { getBrand, getAllBrands } from "../../lib/api";
 const Brand = ({ brand }) => {
   return (
     <Layout>
+      <img
+        src={brand.logo}
+        alt={brand.name}
+        width={200}
+        height={200}
+      />
       <h2>{brand.name}</h2>
-      <p>{brand.id}</p>
+      <BlockContent blocks={brand.description} />
     </Layout>
   );
 };
 
 export async function getStaticProps({ params }) {
-  const { slug, title } = await getBrand(params.slug);
-  
+  const { slug, title, description, logo } = await getBrand(params.slug);
+
   return {
     props: {
-      brand: { id: slug, name: title },
+      brand: { id: slug, name: title, description: description, logo: logo },
     },
   };
 }

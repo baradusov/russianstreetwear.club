@@ -10,6 +10,7 @@ export async function getBrand(slug) {
   const data = await sanity.fetch(
     `*[_type == 'brand' && slug.current == $slug] | order(date desc){
       ${brandFileds},
+      description
     }`,
     { slug }
   );
