@@ -23,7 +23,7 @@ export async function getBrand(slug) {
 
 export async function getAllBrands() {
   const data = await sanity.fetch(
-    `*[_type == 'brand']{
+    `*[_type == 'brand'] | order(title asc) {
       ${brandFileds}
     }`
   );
