@@ -3,6 +3,7 @@ import sanity from "./client";
 const brandFileds = `
     _id,
     title,
+    city,
     'logo': logo.asset->url,
     'slug': slug.current
 `;

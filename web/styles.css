@@ -67,3 +67,13 @@ h1 {
   text-decoration: underline;
   text-underline-offset: 5px;
 }
+
+.brand-title {
+  margin-bottom: 5px;
+}
+
+.city {
+  margin-top: 0;
+  color: #666666;
+  font-size: 14px;
+}

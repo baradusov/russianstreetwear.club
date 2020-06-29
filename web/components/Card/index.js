@@ -3,7 +3,7 @@ import styles from "./index.module.css";
 import urlFor from "../../lib/urlFor";
 
 const Card = ({ data }) => {
-  const { logo, title, slug } = data;
+  const { logo, title, city, slug } = data;
   const brandImage = logo ? logo : "/logos/no-image.png";
 
   return (
@@ -15,7 +15,8 @@ const Card = ({ data }) => {
             src={urlFor(brandImage).width(300).height(300).url()}
             alt={name}
           />
-          <p className={styles.title}>{title}</p>
+          <h2 className={styles.title}>{title}</h2>
+          {city ? <p className={styles.city}>{city}</p> : null}
         </article>
       </a>
     </Link>

@@ -12,9 +12,13 @@ const Index = ({ brands }) => {
   };
 
   useEffect(() => {
-    const results = brands.filter(({ title }) => {
+    const results = brands.filter(({ title, city = "" }) => {
       const brandName = title.toLowerCase();
-      return brandName.includes(searchTerm.toLowerCase());
+      const brandCity = city.toLowerCase();
+      return (
+        brandName.includes(searchTerm.toLowerCase()) ||
+        brandCity.includes(searchTerm.toLowerCase())
+      );
     });
 
     setSearchResults(results);

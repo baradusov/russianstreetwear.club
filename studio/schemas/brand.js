@@ -18,6 +18,11 @@ export default {
       }
     },
     {
+      name: 'city',
+      title: 'City',
+      type: 'string'
+    },
+    {
       name: 'logo',
       title: 'Logo',
       type: 'image',
