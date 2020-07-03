@@ -40,7 +40,7 @@ export async function getStaticProps({ params }) {
       brand: {
         id: brand.slug,
         name: brand.title,
-        description: brand.description,
+        description: brand.description || null,
         logo: brand.logo,
         links: brand.links || null,
         city: brand.city || null,
