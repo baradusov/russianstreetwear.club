@@ -7,7 +7,7 @@ const Card = ({ data }) => {
   const brandImage = logo ? logo : "/logos/no-image.png";
 
   return (
-    <Link href="/brands/[slug]" as={`/brands/${slug}`}>
+    <Link href="[slug]" as={`${slug}`}>
       <a className={styles.link}>
         <article className={styles.item}>
           <img

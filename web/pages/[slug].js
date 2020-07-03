@@ -1,9 +1,9 @@
 import BlockContent from "@sanity/block-content-to-react";
 
-import Layout from "../../components/Layout";
+import Layout from "../components/Layout";
 
-import { getBrand, getAllBrands } from "../../lib/api";
-import urlFor from "../../lib/urlFor";
+import { getBrand, getAllBrands } from "../lib/api";
+import urlFor from "../lib/urlFor";
 
 const Brand = ({ brand }) => {
   return (
