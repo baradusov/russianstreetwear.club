@@ -27,15 +27,13 @@ const Brand = ({ brand }) => {
           })}
         </div>
       ) : null}
-      <BlockContent blocks={brand.description} />
+      {brand.description ? <BlockContent blocks={brand.description} /> : null}
     </Layout>
   );
 };
 
 export async function getStaticProps({ params }) {
-  const brand = await getBrand(
-    params.slug
-  );
+  const brand = await getBrand(params.slug);
 
   return {
     props: {
@@ -45,7 +43,7 @@ export async function getStaticProps({ params }) {
         description: brand.description,
         logo: brand.logo,
         links: brand.links || null,
-        city: brand.city || null
+        city: brand.city || null,
       },
     },
   };
