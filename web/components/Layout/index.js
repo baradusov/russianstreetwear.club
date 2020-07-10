@@ -20,7 +20,12 @@ const Layout = ({ children, home, quantity }) => {
             </Link>
           </h1>
         )}
+
         {children}
+
+        <Link href="/about">
+          <a className={styles.aboutLink}>&#63;</a>
+        </Link>
       </main>
       {home ? (
         <footer className={styles.footer}>
