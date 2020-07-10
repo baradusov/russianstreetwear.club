@@ -13,7 +13,7 @@ export async function getBrand(slug) {
     `*[_type == 'brand' && slug.current == $slug]{
       ${brandFileds},
       description,
-      links[]{_id, title, url}
+      links[]{_key, title, url}
     }`,
     { slug }
   );

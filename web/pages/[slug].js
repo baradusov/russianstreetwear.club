@@ -18,9 +18,9 @@ const Brand = ({ brand }) => {
       {brand.city ? <p className="city">{brand.city}</p> : null}
       {brand.links ? (
         <div className="links">
-          {brand.links.map(({ _id, title, url }) => {
+          {brand.links.map(({ _key, title, url }) => {
             return (
-              <a key={_id} href={url}>
+              <a key={_key} href={url}>
                 {title}
               </a>
             );
