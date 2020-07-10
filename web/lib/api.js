@@ -79,7 +79,9 @@ export async function getInstagramPhotos(links) {
     }
 
     function extractPhotos(sharedData) {
+      console.log(sharedData)
       if (
+        sharedData?.entry_data?.ProfilePage &&
         sharedData?.entry_data?.ProfilePage[0]?.graphql?.user
           ?.edge_owner_to_timeline_media?.edges
       ) {
