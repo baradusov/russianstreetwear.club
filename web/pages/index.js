@@ -4,7 +4,7 @@ import Layout from "../components/Layout";
 
 import { getAllBrands } from "../lib/api";
 
-const Index = ({ brands }) => {
+const Index = ({ brands, quantity }) => {
   const [searchTerm, setSearchTerm] = useState("");
   const [searhResults, setSearchResults] = useState([]);
   const handleChange = ({ target }) => {
@@ -25,7 +25,7 @@ const Index = ({ brands }) => {
   }, [searchTerm]);
 
   return (
-    <Layout home={true}>
+    <Layout home={true} quantity={quantity}>
       <input
         className="search-input"
         type="text"
@@ -44,6 +44,7 @@ export async function getStaticProps(context) {
   return {
     props: {
       brands: allBrands,
+      quantity: allBrands.length,
     },
   };
 }

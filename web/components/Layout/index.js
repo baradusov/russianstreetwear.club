@@ -1,8 +1,10 @@
 import Head from "next/head";
-import styles from "./index.module.css";
 import Link from "next/link";
 
-const Layout = ({ children, home }) => {
+import styles from "./index.module.css";
+import declension from "../../lib/declension";
+
+const Layout = ({ children, home, quantity }) => {
   return (
     <>
       <Head>
@@ -20,6 +22,14 @@ const Layout = ({ children, home }) => {
         )}
         {children}
       </main>
+      {home ? (
+        <footer className={styles.footer}>
+          <p>
+            В каталоге — {quantity}{" "}
+            {declension("бренд", "брендов", "бренда", quantity)}
+          </p>
+        </footer>
+      ) : null}
     </>
   );
 };
