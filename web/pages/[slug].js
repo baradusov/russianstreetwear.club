@@ -1,8 +1,9 @@
 import BlockContent from "@sanity/block-content-to-react";
 
 import Layout from "../components/Layout";
+import InstagramWidget from "../components/InstagramWidget";
 
-import { getBrand, getAllBrands } from "../lib/api";
+import { getBrand, getAllBrands, getInstagramPhotos } from "../lib/api";
 import urlFor from "../lib/urlFor";
 
 const Brand = ({ brand }) => {
@@ -27,13 +28,23 @@ const Brand = ({ brand }) => {
           })}
         </div>
       ) : null}
-      {brand.description ? <BlockContent blocks={brand.description} /> : null}
+
+      {brand.description ? (
+        <div className="blockContent">
+          <BlockContent blocks={brand.description} />
+        </div>
+      ) : null}
+
+      {brand.instagramPhotos ? (
+        <InstagramWidget data={brand.instagramPhotos} />
+      ) : null}
     </Layout>
   );
 };
 
 export async function getStaticProps({ params }) {
   const brand = await getBrand(params.slug);
+  const instagramPhotos = await getInstagramPhotos(brand?.links);
 
   return {
     props: {
@@ -44,6 +55,7 @@ export async function getStaticProps({ params }) {
         logo: brand.logo,
         links: brand.links || null,
         city: brand.city || null,
+        instagramPhotos: instagramPhotos || null,
       },
     },
   };

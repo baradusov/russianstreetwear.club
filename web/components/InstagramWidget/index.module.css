@@ -1,0 +1,25 @@
+.list {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.item {
+  max-width: 33%;
+}
+
+.link {
+  display: block;
+}
+
+.photo {
+  display: block;
+  width: 100%;
+  height: 293px;
+  object-fit: cover;
+}
+
+@media (max-width: 600px) {
+  .item {
+    max-width: 50%;
+  }
+}
