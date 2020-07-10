@@ -13,7 +13,7 @@ const Card = ({ data }) => {
           <img
             className={styles.logo}
             src={urlFor(brandImage).width(300).height(300).url()}
-            alt={name}
+            alt={title}
           />
           <h2 className={styles.title}>{title}</h2>
           {city ? <p className={styles.city}>{city}</p> : null}
