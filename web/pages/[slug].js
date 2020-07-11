@@ -38,6 +38,13 @@ const Brand = ({ brand }) => {
       {brand.instagramPhotos ? (
         <InstagramWidget data={brand.instagramPhotos} />
       ) : null}
+
+      <footer className="footer">
+        <p>
+          Если вы заметили ошибку, напишите, пожалуйста,{" "}
+          <a className="link" href="https://t.me/baradusov">в телеграм</a>.
+        </p>
+      </footer>
     </Layout>
   );
 };
