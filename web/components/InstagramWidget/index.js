@@ -1,15 +1,14 @@
-import Link from "next/link";
 import styles from "./index.module.css";
 
 const InstagramWidget = ({ data }) => {
   return (
     <ul className={styles.list}>
-      {data.map(({ photoUrl, postShortCode }) => {
+      {data.map(({ id, photoUrl, postUrl }) => {
         return (
-          <li key={postShortCode} className={styles.item}>
+          <li key={id} className={styles.item}>
             <a
               className={styles.link}
-              href={`https://instagram.com/p/${postShortCode}`}
+              href={postUrl}
             >
               <img className={styles.photo} src={photoUrl} />
             </a>

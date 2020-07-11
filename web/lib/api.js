@@ -1,5 +1,4 @@
 import sanity from "./client";
-import { JSDOM } from "jsdom";
 
 const brandFileds = `
     _id,
@@ -46,80 +45,38 @@ export async function getAllBrands() {
 /**
  * Get the instagram photos
  *
- * @param {string} username Brand's username at Instagram
+ * @param {string} userId User id from query url
+ * @param {string|number} number Number of photos to fetch
  * @returns {array}
  */
-export async function getInstagramPhotos(links) {
-  if (links) {
-    function parseInstagramPage(txt) {
-      const doc = new JSDOM(txt);
-      return doc.window.document;
-    }
+export async function getInstagramPhotos(userId, number = 6) {
+  if (userId) {
+    const QUERY_URL = `https://www.instagram.com/graphql/query/?query_hash=15bf78a4ad24e33cbd838fdb31353ac1&variables={"id":${userId},"first":${number}}`;
 
-    function extractSharedData(doc) {
-      const scripts = Array.from(doc.querySelectorAll("script"));
-      const sharedDataRawText = scripts.filter((script) => {
-        return script.textContent.indexOf("_sharedData") > -1;
-      })[0];
-
-      if (sharedDataRawText) {
-        const sharedDataJSONText = sharedDataRawText.textContent
-          .trim()
-          .match(/\=\ (.*);/)[1];
-        let sharedData;
-
-        try {
-          sharedData = JSON.parse(sharedDataJSONText);
-        } catch (e) {
-          console.log("Failed to parse data.");
-        }
-
-        return sharedData;
-      }
-    }
-
-    function extractPhotos(sharedData) {
-      console.log(sharedData)
-      if (
-        sharedData?.entry_data?.ProfilePage &&
-        sharedData?.entry_data?.ProfilePage[0]?.graphql?.user
-          ?.edge_owner_to_timeline_media?.edges
-      ) {
-        const rawPhotoData =
-          sharedData.entry_data.ProfilePage[0].graphql.user
-            .edge_owner_to_timeline_media.edges;
-
-        const photos = rawPhotoData.map((photo) => {
-          const {
-            node: { shortcode, display_url },
-          } = photo;
-
-          return {
-            photoUrl: display_url,
-            postShortCode: shortcode,
-          };
-        });
-        return photos;
-      }
-    }
-
-    const [instagramLink] = links.filter((link) =>
-      link.url.includes("instagram")
-    );
-
-    if (instagramLink) {
-      const instagramUsername = instagramLink.url
-        .split(".com/")[1]
-        .replace("/", "");
-      const data = await fetch(
-        `https://www.instagram.com/${instagramUsername}/`
-      );
-      const text = await data.text();
-      const document = parseInstagramPage(text);
-      const sharedData = extractSharedData(document);
-      const photos = extractPhotos(sharedData);
+    const getPhotos = async (queryUrl) => {
+      const response = await fetch(queryUrl);
+      const rawData = await response.json();
+      const photos = normalizePhotoData(rawData);
 
       return photos;
-    }
+    };
+
+    const normalizePhotoData = (rawData) => {
+      const data = rawData.data.user.edge_owner_to_timeline_media.edges.map(
+        ({ node }) => {
+          return {
+            id: node.id,
+            photoUrl: node.thumbnail_src,
+            postUrl: `https://instagram.com/p/${node.shortcode}`,
+          };
+        }
+      );
+
+      return data;
+    };
+
+    const data = await getPhotos(QUERY_URL);
+
+    return data;
   }
 }

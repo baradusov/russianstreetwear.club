@@ -22,4 +22,14 @@
   .item {
     max-width: 50%;
   }
+
+  .photo {
+    height: 200px;
+  }
+}
+
+@media (max-width: 460px) {
+  .photo {
+    height: 200px;
+  }
 }

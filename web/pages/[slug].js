@@ -5,6 +5,7 @@ import InstagramWidget from "../components/InstagramWidget";
 
 import { getBrand, getAllBrands, getInstagramPhotos } from "../lib/api";
 import urlFor from "../lib/urlFor";
+import getInstagramUserId from "../lib/getInstagramUserId";
 
 const Brand = ({ brand }) => {
   return (
@@ -44,7 +45,8 @@ const Brand = ({ brand }) => {
 
 export async function getStaticProps({ params }) {
   const brand = await getBrand(params.slug);
-  const instagramPhotos = await getInstagramPhotos(brand?.links);
+  const instagramUserId = await getInstagramUserId(brand?.links);
+  const instagramPhotos = await getInstagramPhotos(instagramUserId);
 
   return {
     props: {
