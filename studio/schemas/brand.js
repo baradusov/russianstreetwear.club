@@ -37,6 +37,12 @@ export default {
       of: [{type: 'link'}]
     },
     {
+      name: 'instagramId',
+      title: 'Instagram ID',
+      description: "It's for instagram widget",
+      type: 'string'
+    },
+    {
       name: 'description',
       title: 'Description',
       type: 'blockContent'

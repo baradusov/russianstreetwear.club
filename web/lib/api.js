@@ -19,6 +19,7 @@ export async function getBrand(slug) {
     `*[_type == 'brand' && slug.current == $slug]{
       ${brandFileds},
       description,
+      instagramId,
       links[]{_key, title, url}
     }`,
     { slug }
