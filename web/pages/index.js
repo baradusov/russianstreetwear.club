@@ -6,7 +6,7 @@ import { getAllBrands } from "../lib/api";
 
 const Index = ({ brands, quantity }) => {
   const [searchTerm, setSearchTerm] = useState("");
-  const [searhResults, setSearchResults] = useState([]);
+  const [searhResults, setSearchResults] = useState(brands);
   const handleChange = ({ target }) => {
     setSearchTerm(target.value);
   };
