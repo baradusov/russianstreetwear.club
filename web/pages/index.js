@@ -33,7 +33,17 @@ const Index = ({ brands, quantity }) => {
         value={searchTerm}
         onChange={handleChange}
       />
-      <CardList data={searhResults} />
+      {searhResults.length ? (
+        <CardList data={searhResults} />
+      ) : (
+        <p>
+          В каталоге такого бренда ещё нет, но можно{" "}
+          <a className="link" href="https://airtable.com/shroyJ2ZpuX4WVEIk">
+            предложить добавить
+          </a>{" "}
+          его.
+        </p>
+      )}
     </Layout>
   );
 };

@@ -81,3 +81,13 @@ h1 {
 .blockContent {
   margin-bottom: 50px;
 }
+
+.footer {
+  display: flex;
+  align-items: center;
+  margin-top: 50px;
+}
+
+.link {
+  text-decoration: underline;
+}
