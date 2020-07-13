@@ -23,8 +23,12 @@ const Layout = ({ children, home, quantity }) => {
 
         {children}
 
-        <Link href="/about">
-          <a className={styles.aboutLink}>&#63;</a>
+        <Link href={home ? "/about" : "/"}>
+          {home ? (
+            <a className={styles.aboutLink}>&#63;</a>
+          ) : (
+            <a className={styles.aboutLink}>&#x21b5;</a>
+          )}
         </Link>
       </main>
       {home ? (
