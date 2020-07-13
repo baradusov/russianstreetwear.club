@@ -41,7 +41,7 @@ const Brand = ({ brand }) => {
 
       <footer className="footer">
         <p>
-          Если вы заметили ошибку, напишите, пожалуйста,{" "}
+          Если заметили ошибку, напишите, пожалуйста,{" "}
           <a className="link" href="https://t.me/baradusov">в телеграм</a>.
         </p>
       </footer>
