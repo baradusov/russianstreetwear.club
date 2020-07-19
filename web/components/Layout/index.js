@@ -9,6 +9,16 @@ const Layout = ({ children, home, quantity }) => {
     <>
       <Head>
         <title>Российские бренды уличной одежды</title>
+        <script
+          async
+          src="https://www.googletagmanager.com/gtag/js?id=UA-103576314-5"
+        ></script>
+        <script
+          dangerouslySetInnerHTML={{
+            __html:
+              "window.dataLayer = window.dataLayer || [];function gtag(){dataLayer.push(arguments);}gtag('js', new Date());gtag('config', 'UA-103576314-5');",
+          }}
+        ></script>
       </Head>
       <main>
         {home ? (
