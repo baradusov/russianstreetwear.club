@@ -46,7 +46,7 @@ const Index = ({ brands, quantity }) => {
         </p>
       )}
 
-      <CircleLink link="/about/" icon="&#63;" />
+      <CircleLink link="/about" icon="&#63;" />
     </Layout>
   );
 };

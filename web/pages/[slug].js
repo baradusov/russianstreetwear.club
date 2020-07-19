@@ -40,7 +40,7 @@ const Brand = ({ brand }) => {
         <InstagramWidget data={brand.instagramPhotos} />
       ) : null}
 
-      <CircleLink link="/about/" icon="&#63;" />
+      <CircleLink link="/about" icon="&#63;" />
 
       <footer className="footer">
         <p>
