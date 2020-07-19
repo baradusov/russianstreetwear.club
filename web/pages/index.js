@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import CardList from "../components/CardList";
 import Layout from "../components/Layout";
+import CircleLink from "../components/CircleLink";
 
 import { getAllBrands } from "../lib/api";
 
@@ -44,6 +45,8 @@ const Index = ({ brands, quantity }) => {
           его.
         </p>
       )}
+
+      <CircleLink link="/about/" icon="&#63;" />
     </Layout>
   );
 };

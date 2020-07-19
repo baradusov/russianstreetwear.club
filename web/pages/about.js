@@ -1,4 +1,5 @@
 import Layout from "../components/Layout";
+import CircleLink from "../components/CircleLink";
 
 import { getAllBrands } from "../lib/api";
 import declension from "../lib/declension";
@@ -21,6 +22,8 @@ const About = ({ quantity }) => {
 
       <h2>Поддержать</h2>
       <p>Шмавтор</p>
+
+      <CircleLink link="/" icon="&#x21b5;" />
     </Layout>
   );
 };
