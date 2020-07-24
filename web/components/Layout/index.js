@@ -4,11 +4,11 @@ import Link from "next/link";
 import styles from "./index.module.css";
 import declension from "../../lib/declension";
 
-const Layout = ({ children, home, quantity }) => {
+const Layout = ({ title, children, home, quantity }) => {
   return (
     <>
       <Head>
-        <title>Российские бренды уличной одежды</title>
+        <title>{title ? `${title} |` : ""} Российские бренды уличной одежды</title>
         <script
           async
           src="https://www.googletagmanager.com/gtag/js?id=UA-103576314-5"

@@ -9,7 +9,7 @@ import urlFor from "../lib/urlFor";
 
 const Brand = ({ brand }) => {
   return (
-    <Layout>
+    <Layout title={brand.name}>
       <img
         src={urlFor(brand.logo).width(300).height(300).url()}
         alt={brand.name}
