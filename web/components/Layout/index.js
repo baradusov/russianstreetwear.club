@@ -4,7 +4,7 @@ import Link from 'next/link';
 import styles from './index.module.css';
 import declension from '../../lib/declension';
 
-const Layout = ({ title, children, home, quantity, logo }) => {
+const Layout = ({ title, description, children, home, quantity, logo }) => {
   return (
     <>
       <Head>
@@ -13,7 +13,11 @@ const Layout = ({ title, children, home, quantity, logo }) => {
         </title>
         <meta
           name="description"
-          content="Каталог российских брендов уличной одежды."
+          content={
+            description
+              ? description
+              : 'Каталог российских брендов уличной одежды.'
+          }
         ></meta>
 
         <meta
