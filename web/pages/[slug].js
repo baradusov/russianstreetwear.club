@@ -1,11 +1,11 @@
-import BlockContent from "@sanity/block-content-to-react";
+import BlockContent from '@sanity/block-content-to-react';
 
-import Layout from "../components/Layout";
-import InstagramWidget from "../components/InstagramWidget";
-import CircleLink from "../components/CircleLink";
+import Layout from '../components/Layout';
+import InstagramWidget from '../components/InstagramWidget';
+import CircleLink from '../components/CircleLink';
 
-import { getBrand, getAllBrands, getInstagramPhotos } from "../lib/api";
-import urlFor from "../lib/urlFor";
+import { getBrand, getAllBrands, getInstagramPhotos } from '../lib/api';
+import urlFor from '../lib/urlFor';
 
 const Brand = ({ brand }) => {
   return (
@@ -44,7 +44,7 @@ const Brand = ({ brand }) => {
 
       <footer className="footer">
         <p>
-          Если заметили ошибку, напишите, пожалуйста,{" "}
+          Если заметили ошибку, напишите, пожалуйста,{' '}
           <a className="link" href="https://t.me/baradusov">
             в телеграм
           </a>

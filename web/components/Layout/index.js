@@ -1,15 +1,15 @@
-import Head from "next/head";
-import Link from "next/link";
+import Head from 'next/head';
+import Link from 'next/link';
 
-import styles from "./index.module.css";
-import declension from "../../lib/declension";
+import styles from './index.module.css';
+import declension from '../../lib/declension';
 
 const Layout = ({ title, children, home, quantity, logo }) => {
   return (
     <>
       <Head>
         <title>
-          {title ? `${title} |` : ""} Российские бренды уличной одежды
+          {title ? `${title} |` : ''} Российские бренды уличной одежды
         </title>
         <meta
           name="description"
@@ -76,8 +76,8 @@ const Layout = ({ title, children, home, quantity, logo }) => {
       {home ? (
         <footer className={styles.footer}>
           <p>
-            В каталоге — {quantity}{" "}
-            {declension("бренд", "брендов", "бренда", quantity)}
+            В каталоге — {quantity}{' '}
+            {declension('бренд', 'брендов', 'бренда', quantity)}
           </p>
         </footer>
       ) : null}
