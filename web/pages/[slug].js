@@ -77,6 +77,7 @@ export async function getStaticProps({ params }) {
         instagramPhotos: instagramPhotos || null,
       },
     },
+    revalidate: 60 * 60 * 12, // каждые 12 часов
   };
 }
 
@@ -91,7 +92,7 @@ export async function getStaticPaths() {
         },
       };
     }),
-    fallback: false,
+    fallback: 'blocking',
   };
 }
 
