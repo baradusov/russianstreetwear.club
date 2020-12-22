@@ -82,16 +82,8 @@ export async function getStaticProps({ params }) {
 }
 
 export async function getStaticPaths() {
-  const allBrands = await getAllBrands();
-
   return {
-    paths: allBrands.map((brand) => {
-      return {
-        params: {
-          slug: brand.slug,
-        },
-      };
-    }),
+    paths: [],
     fallback: 'blocking',
   };
 }
