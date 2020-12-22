@@ -59,6 +59,7 @@ export async function getStaticProps(context) {
       brands: allBrands,
       quantity: allBrands.length,
     },
+    revalidate: 60 * 60 * 12, // каждые 12 часов
   };
 }
 
