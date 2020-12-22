@@ -52,7 +52,7 @@ export async function getAllBrands() {
  */
 export async function getInstagramPhotos(userId, number = 6) {
   if (userId) {
-    const QUERY_URL = `https://www.instagram.com/graphql/query/?query_hash=15bf78a4ad24e33cbd838fdb31353ac1&variables={"id":${userId},"first":${number}}`;
+    const QUERY_URL = `https://www.instagram.com/graphql/query/?query_hash=003056d32c2554def87228bc3fd9668a&variables={"id":${userId},"first":${number}}`;
 
     const getPhotos = async (queryUrl) => {
       const response = await fetch(queryUrl);
