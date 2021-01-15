@@ -4,7 +4,7 @@ import Layout from '../components/Layout';
 import InstagramWidget from '../components/InstagramWidget';
 import CircleLink from '../components/CircleLink';
 
-import { getBrand, getAllBrands, getInstagramPhotos } from '../lib/api';
+import { getBrand } from '../lib/api';
 import urlFor from '../lib/urlFor';
 
 const Brand = ({ brand }) => {
@@ -42,8 +42,8 @@ const Brand = ({ brand }) => {
         </div>
       ) : null}
 
-      {brand.instagramPhotos ? (
-        <InstagramWidget data={brand.instagramPhotos} />
+      {brand.instagramId ? (
+        <InstagramWidget instagramId={brand.instagramId} />
       ) : null}
 
       <CircleLink link="/about" icon="&#63;" />
@@ -63,7 +63,6 @@ const Brand = ({ brand }) => {
 
 export async function getStaticProps({ params }) {
   const brand = await getBrand(params.slug);
-  const instagramPhotos = await getInstagramPhotos(brand.instagramId);
 
   return {
     props: {
@@ -74,7 +73,7 @@ export async function getStaticProps({ params }) {
         logo: brand.logo,
         links: brand.links || null,
         city: brand.city || null,
-        instagramPhotos: instagramPhotos || null,
+        instagramId: brand.instagramId || null,
       },
     },
     revalidate: 60 * 60 * 12, // каждые 12 часов

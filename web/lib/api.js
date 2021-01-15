@@ -1,4 +1,7 @@
-import sanity from "./client";
+import sanity from './client';
+import useSWR from 'swr';
+
+const fetcher = (...args) => fetch(...args).then((res) => res.json());
 
 const brandFileds = `
     _id,
@@ -50,34 +53,37 @@ export async function getAllBrands() {
  * @param {string|number} number Number of photos to fetch
  * @returns {array}
  */
-export async function getInstagramPhotos(userId, number = 6) {
-  if (userId) {
-    const QUERY_URL = `https://www.instagram.com/graphql/query/?query_hash=003056d32c2554def87228bc3fd9668a&variables={"id":${userId},"first":${number}}`;
-
-    const getPhotos = async (queryUrl) => {
-      const response = await fetch(queryUrl);
-      const rawData = await response.json();
-      const photos = normalizePhotoData(rawData);
-
-      return photos;
-    };
-
-    const normalizePhotoData = (rawData) => {
-      const data = rawData.data.user.edge_owner_to_timeline_media.edges.map(
-        ({ node }) => {
-          return {
-            id: node.id,
-            photoUrl: node.thumbnail_src,
-            postUrl: `https://instagram.com/p/${node.shortcode}`,
-          };
-        }
-      );
-
-      return data;
-    };
-
-    const data = await getPhotos(QUERY_URL);
+export function useInstagramPhotos(userId, number = 6) {
+  const normalizePhotoData = (rawData) => {
+    const data = rawData.data.user.edge_owner_to_timeline_media.edges.map(
+      ({ node }) => {
+        return {
+          id: node.id,
+          photoUrl: node.thumbnail_src,
+          postUrl: `https://instagram.com/p/${node.shortcode}`,
+        };
+      }
+    );
 
     return data;
+  };
+
+  if (userId) {
+    const QUERY_URL = `https://www.instagram.com/graphql/query/?query_hash=003056d32c2554def87228bc3fd9668a&variables={"id":${userId},"first":${number}}`;
+    const { data, error } = useSWR(QUERY_URL, fetcher);
+
+    if (data) {
+      return {
+        photos: normalizePhotoData(data),
+        isLoading: false,
+        isError: error,
+      };
+    }
+
+    return {
+      photos: null,
+      isLoading: !data && !error,
+      isError: error,
+    };
   }
 }
