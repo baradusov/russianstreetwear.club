@@ -1,0 +1,4 @@
+# robot.txt
+User-agent: *
+Allow: /
+Disallow: /[slug]
